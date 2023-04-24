@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+   <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        transition: all 0.5s;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(75deg,rgb(40, 40, 88),gray,rgb(40, 40, 88));
+    }
+    #header{
+        width: 40%;
+        height: 100vh;
+        background-image: url(./10.jpeg);
+        background-repeat: no-repeat;
+        background-size:100% 100% ;
+        display: flex;
+        align-items: center;
+        box-shadow: 5px 5px 5px black,-5px -5px 5px black;
+    }
+    #left,#right{
+        width: 80px;
+        height: 80px;
+        background-color: transparent;
+        border: none;
+        font-size: 80px;
+        color: black;
+        position: absolute ;
+        text-shadow: 2px 2px 5px black;
+    }
+    #left{
+        left: 40px;
+    }
+    #right{
+        right: 40px;
+    }
+   </style>
+</head>
+<body>
+    <div id="header">
+        <button id="left"><</button>
+        <button id="right">></button>
+    </div>
+    <script>
+        var img=["10.jpeg","1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg",]
+        var indexVal=0;
+        var buttonRight=document.querySelector("#right")
+        buttonRight.addEventListener("click",function(){
+            indexVal++;
+            if(indexVal>img.length-1)
+            {
+                indexVal=0;
+                document.getElementById("header").style.backgroundImage=`url(./${img[indexVal]})`
+            }
+            else
+            {
+                document.getElementById("header").style.backgroundImage=`url(./${img[indexVal]})`
+            }
+        })
+        var buttonLeft=document.querySelector("#left")
+        buttonLeft.addEventListener("click",function(){
+            indexVal--;
+            if(indexVal<0)
+            {
+                indexVal=img.length-1;
+                document.getElementById("header").style.backgroundImage=`url(./${img[indexVal]})`
+            }
+            else{
+                document.getElementById("header").style.backgroundImage=`url(./${img[indexVal]})`
+            }
+        })
+    </script>
+</body>
+</html>
